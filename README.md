@@ -42,7 +42,7 @@ List of Classes:
 - (1) Actor
 - (2) Cast
 - (3) Cycle
-- (4) Food (DELETE)
+- (4) Cycle1
 - (5) Score
 - (6) Director
 - (7) Action
@@ -54,4 +54,4 @@ List of Classes:
 - (13) video_service
 - (14) Color
 - (15) Point
-- (16)
+- (16) Cycle2

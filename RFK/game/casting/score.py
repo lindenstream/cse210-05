@@ -14,14 +14,27 @@ class Score(Actor):
     """
     def __init__(self):
         super().__init__()
-        self._points = 0
-        self.add_points(0)
+        self._counter = 0
+        self.add_counter(0)
+        self._is_playing = True
 
-    def add_points(self, points):
+    def add_counter(self, counter):
         """Adds the given points to the score's total points.
         
         Args:
             points (int): The points to add.
         """
-        self._points += points
-        self.set_text(f"Score: {self._points}")
+        self._counter += counter
+        self.set_text(f"Timer: {self._counter}")
+
+    def get_counter(self):
+        """Returns the counter.
+        
+        """
+        return self._counter
+
+    def stop_counter(self):
+        self._is_playing = False
+
+    def is_playing(self):
+        return self._is_playing

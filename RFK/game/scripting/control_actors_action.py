@@ -22,28 +22,61 @@ class ControlActorsAction(Action):
         self._keyboard_service = keyboard_service
         self._direction = Point(constants.CELL_SIZE, 0)
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, counter):
         """Executes the control actors action.
 
         Args:
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+        player1 = False
+        player2 = False
+       
         # left
         if self._keyboard_service.is_key_down('a'):
             self._direction = Point(-constants.CELL_SIZE, 0)
-        
+            player1 = True
+
         # right
         if self._keyboard_service.is_key_down('d'):
             self._direction = Point(constants.CELL_SIZE, 0)
+            player1 = True
         
         # up
         if self._keyboard_service.is_key_down('w'):
             self._direction = Point(0, -constants.CELL_SIZE)
+            player1 = True
         
         # down
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
+            player1 = True
+
+        # left
+        if self._keyboard_service.is_key_down('j'):
+            self._direction = Point(-constants.CELL_SIZE, 0)
+            player2 = True
         
-        cycle = cast.get_first_actor("cycles")
-        cycle.turn_head(self._direction)
+        # right
+        if self._keyboard_service.is_key_down('l'):
+            self._direction = Point(constants.CELL_SIZE, 0)
+            player2 = True
+        
+        # up
+        if self._keyboard_service.is_key_down('i'):
+            self._direction = Point(0, -constants.CELL_SIZE)
+            player2 = True
+        
+        # down
+        if self._keyboard_service.is_key_down('k'):
+            self._direction = Point(0, constants.CELL_SIZE)
+            player2 = True
+        
+        cycle1 = cast.get_first_actor("cycle1")
+        cycle2 = cast.get_first_actor("cycle2")
+        
+        if player1:
+            cycle1.turn_head(self._direction)
+        
+        if player2:
+            cycle2.turn_head(self._direction)

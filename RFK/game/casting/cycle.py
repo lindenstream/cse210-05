@@ -16,6 +16,7 @@ class Cycle(Actor):
         super().__init__()
         self._segments = []
         self._prepare_body()
+        self.win = False
 
     def get_segments(self):
         return self._segments
@@ -67,3 +68,9 @@ class Cycle(Actor):
             segment.set_text(text)
             segment.set_color(color)
             self._segments.append(segment)
+
+    def won_game(self):
+        return self.win
+
+    def set_win(self, bool):
+        self.win = bool
