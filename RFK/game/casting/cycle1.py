@@ -19,6 +19,7 @@ class Cycle1(Cycle):
         self._prepare_body()
 
     def _prepare_body(self):
+        # prepares the cycle body location
         x = int(constants.MAX_X / 4)
         y = int(constants.MAX_Y / 4)
 
@@ -36,6 +37,7 @@ class Cycle1(Cycle):
             self._segments.append(segment)
 
     def grow_tail(self, number_of_segments):
+        # increases size of light tail
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()

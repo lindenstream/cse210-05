@@ -1,5 +1,6 @@
 from game.shared.color import Color
 
+# global constants for the game
 
 COLUMNS = 40
 ROWS = 20

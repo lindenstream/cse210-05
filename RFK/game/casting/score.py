@@ -3,11 +3,9 @@ from game.casting.actor import Actor
 
 class Score(Actor):
     """
-    A record of points made or lost. 
+    A time lapsed recorder. 
     
-    The responsibility of Score is to keep track of the points the player has earned by eating food.
-    It contains methods for adding and getting points. Client should use get_text() to get a string 
-    representation of the points earned.
+    The responsibility of Score is to keep track of the time elapsed
 
     Attributes:
         _points (int): The points earned in the game.
@@ -34,7 +32,9 @@ class Score(Actor):
         return self._counter
 
     def stop_counter(self):
+        # sets the is_playing to False
         self._is_playing = False
 
     def is_playing(self):
+        # returns is_playing status
         return self._is_playing

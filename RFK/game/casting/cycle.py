@@ -5,7 +5,7 @@ from game.shared.point import Point
 
 class Cycle(Actor):
     """
-    A long limbless reptile.
+    A glowing two-wheeled spectacle.
     
     The responsibility of Cycle is to move itself.
 
@@ -19,6 +19,7 @@ class Cycle(Actor):
         self.win = False
 
     def get_segments(self):
+        # returns segments of trail
         return self._segments
 
     def move_next(self):
@@ -33,9 +34,11 @@ class Cycle(Actor):
             trailing.set_velocity(velocity)
 
     def get_head(self):
+        # returns head
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
+        # increases size of light tail
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
@@ -50,9 +53,11 @@ class Cycle(Actor):
             self._segments.append(segment)
 
     def turn_head(self, velocity):
+        # turns cycle's direction
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
+        # prepares the cycle body location
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
 
@@ -70,7 +75,9 @@ class Cycle(Actor):
             self._segments.append(segment)
 
     def won_game(self):
+        # returns win Boolean
         return self.win
 
     def set_win(self, bool):
+        # sets win boolean
         self.win = bool
